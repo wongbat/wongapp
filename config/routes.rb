@@ -1,4 +1,13 @@
 Petal::Application.routes.draw do
+  resources :account_managers do
+    resources :clients
+  end
+  resources :clients do
+    resources :account_managers
+  end
+  resources :clients do
+    resources :campaigns
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
