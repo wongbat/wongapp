@@ -21,11 +21,6 @@ ActiveRecord::Schema.define(:version => 20120813162530) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "account_managers_clients", :id => false, :force => true do |t|
-    t.integer "account_manager_id"
-    t.integer "client_id"
-  end
-
   create_table "campaigns", :force => true do |t|
     t.string   "title"
     t.string   "type"
@@ -39,6 +34,11 @@ ActiveRecord::Schema.define(:version => 20120813162530) do
     t.integer  "contact"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "relationships", :force => true do |t|
+    t.integer "account_manager_id"
+    t.integer "client_id"
   end
 
 end
