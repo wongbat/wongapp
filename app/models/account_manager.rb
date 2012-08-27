@@ -6,5 +6,5 @@ class AccountManager < ActiveRecord::Base
 
   validates_associated :clients
   validates_presence_of :name, :surname
-  validates :email, :presence => true, :format => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :uniqueness => true
+  validates :email, :format => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :uniqueness => true
 end
