@@ -9,6 +9,18 @@ gem 'sqlite3'
 
 gem 'json'
 
+group :test do
+  gem 'capybara'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails', '4.0.0'
+  gem 'shoulda'
+end
+
+group :development, :test do
+  gem 'ruby-debug19', '0.11.6', :require => 'ruby-debug'
+  gem 'ruby-debug-base19', '0.11.24', :require => nil
+end
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
