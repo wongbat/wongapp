@@ -9,6 +9,8 @@ gem 'sqlite3'
 
 gem 'json'
 
+gem "haml", "~> 3.1.7"
+
 group :test do
   gem 'capybara'
   gem 'rspec-rails'
