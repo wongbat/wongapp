@@ -13,6 +13,12 @@ FactoryGirl.define do
     email "lanier@wildfireapp.com"
   end
 
+  factory :invalid_account_manager, :parent => :account_manager do
+    name " "
+    surname " "
+    email "wede"
+  end
+
   factory :account_manager_with_clients, :parent => :account_manager do
     after_create do |account_manager|
       FactoryGirl.create(:client, :account_manager => account_manager)
