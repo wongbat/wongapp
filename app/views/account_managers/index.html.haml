@@ -1,0 +1,19 @@
+%h1= "WILDFIRE ACCOUNT MANAGERS"
+
+- @account_managers.each do |f|
+  %ol
+    = link_to f.name
+    = link_to f.surname
+    %br
+    = link_to f.email
+    %br
+    %br
+    %ol
+    = link_to 'see clients', account_manager_clients_path
+    = link_to 'get rid of Account Manager', f, :method => :delete, :id => f.id
+
+    %ol
+    %br
+    = link_to "Add a new client"
+
+%p= link_to "Add a new Account Manager", new_account_manager_path

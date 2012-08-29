@@ -1,0 +1,23 @@
+= form_for(@account_manager) do |f|
+  - if @account_manager.errors.any?
+    %h2= pluralize(@account_manager.errors.count, "error")
+    prohibited this account manager from being saved:
+
+    %ul
+      - @account_manager.errors.full_messages.each do |msg|
+        %li
+        error
+        = msg
+
+  .field
+    = f.label :Name
+    = f.text_field :name
+    %br
+    = f.label :Surname
+    = f.text_field :surname
+    %br
+    = f.label :Email
+    = f.text_field :email
+
+    %p
+      = f.submit "submit"
