@@ -1,4 +1,4 @@
-require 'factory_girl'
+#require 'factory_girl'
 
 FactoryGirl.define do
   factory :client do
@@ -18,9 +18,14 @@ FactoryGirl.define do
 #        FactoryGirl.create_list(:account_manager, evaluator.account_managers_count, :client => client)
 #      end
 #    end
-  
-  factory :invalid_client, :class => Client do
+
+  factory :unassigned_client, :class => Client do
     company "Allianz"
     contact 3534534545
+  end
+
+  factory :invalid_client, :class => Client do
+    company " "
+    contact 234
   end
 end

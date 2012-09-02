@@ -1,4 +1,4 @@
-require 'factory_girl'
+#require 'factory_girl'
 
 FactoryGirl.define do
   factory :campaign do
@@ -7,7 +7,7 @@ FactoryGirl.define do
     client {FactoryGirl.create(:client)}
   end
 
-  factory :invalid_campaign, :class => Campaign do
+  factory :unassigned_campaign, :class => Campaign do
     title "Win ipod"
     style "Sweepstakes"
   end

@@ -1,4 +1,4 @@
-require 'factory_girl'
+#require 'factory_girl'
 
 FactoryGirl.define do
   factory :account_manager do
