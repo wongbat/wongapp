@@ -12,7 +12,7 @@ describe Campaign do
   end
 
   it "should not save without an associated client" do
-    campaign = FactoryGirl.build(:invalid_campaign)
+    campaign = FactoryGirl.build(:unassigned_campaign)
     expect { campaign.save! }.to raise_error(ActiveRecord::RecordInvalid, /Client can't be blank/)
   end
 

@@ -18,7 +18,7 @@ describe Client do
   end
 
   it "should not save without associated Account Manager" do
-    client = FactoryGirl.build(:invalid_client)
+    client = FactoryGirl.build(:unassigned_client)
     expect { client.save! }.should raise_error(ActiveRecord::RecordInvalid, /Account managers can't be blank/)
   end
 
