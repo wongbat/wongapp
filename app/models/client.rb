@@ -1,5 +1,5 @@
 class Client < ActiveRecord::Base
-  attr_accessible :company, :contact, :account_managers
+  attr_accessible :company, :contact, :account_managers, :account_manager_id, :campaign
 
   has_many :relationships
   has_many :account_managers, :through => :relationships
