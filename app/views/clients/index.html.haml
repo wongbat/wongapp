@@ -1,0 +1,10 @@
+%h1= "CLIENTS"
+
+%ol
+  - @clients.each do |f|
+    %ol=link_to f.company
+    %ol=link_to f.contact
+    %p= link_to 'remove client', f, :method => :delete
+
+  %br
+  %p= link_to "back to Account Manager", account_manager_path(@account_manager)

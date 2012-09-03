@@ -1,0 +1,6 @@
+%ol
+  - @campaigns.each do |f|
+    %li= link_to f.title
+    %li= link_to f.type
+    %p= link_to 'see client', account_manager_client_path(@account_manager, @client)
+    %p= link_to 'get rid of Account Manager', f, :method => :delete, :id => f.id

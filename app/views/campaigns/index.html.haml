@@ -1,0 +1,11 @@
+%h1 CLIENT CAMPAIGNS
+
+%ol
+  - @campaigns.each do |f|
+    %li= link_to f.title
+    %li= link_to f.type
+    %p= link_to 'see clients', account_manager_clients_path(f)
+    %p= link_to 'get rid of this campaign', f, :method => :delete, :id => f.id
+
+  %br
+  %p= link_to "start a new campaign", new_account_manager_client_campaign_path(@account_manager, @client)

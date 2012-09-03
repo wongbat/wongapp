@@ -1,0 +1,19 @@
+= form_for(@campaign) do |f|
+  - if @campaign.errors.any?
+      %h2= pluralize(@campaign.errors.count, "error")
+      prohibited this from being saved:
+
+      %ul
+      - @campaign.errors.full_messages.each do |msg|
+        %li
+          error
+          = msg
+
+    %p
+      = f.label :Title
+      = f.text_field :title
+      %br
+      = f.select :style, options_for_select(['Sweepstakes', 'Photo Contest', 'Essay Contest' 'Quiz'], :selected => @campaign.type)
+
+    %p
+      = f.submit "submit"

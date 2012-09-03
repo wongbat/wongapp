@@ -1,0 +1,20 @@
+= form_for(@client) do |f|
+  - if @client.errors.any?
+    %h2= pluralize(@client.errors.count, "error")
+    prohibited this from being saved:
+
+    %ul
+    - @client.errors.full_messages.each do |msg|
+      %li
+        error
+        = msg
+
+  .field
+    = f.label :Company
+    = f.text_field :company
+    %br
+    = f.label :Contact
+    = f.text_field :contact
+
+  .actions
+    = f.submit "submit"

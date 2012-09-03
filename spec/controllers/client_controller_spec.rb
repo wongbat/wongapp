@@ -22,7 +22,7 @@ describe ClientsController do
     end
 
     it "should render the show view" do
-      get :show, :id => @client.id, :account_manager_id => AccountManager.last.ids
+      get :show, :id => @client.id, :account_manager_id => AccountManager.last.id
       response.should render_template("show")
     end
   end
@@ -81,7 +81,7 @@ describe ClientsController do
       before (:each) do
         @account_manager = FactoryGirl.create(:account_manager)
         @client = FactoryGirl.create(:unassigned_client)
-        put :update, :id => @account_manager.client.last, :client => FactoryGirl.attributes_for(:unassigned_client, :company => "Virgin", :contact => 23423423444, :account_manager = FactoryGirl.create(:account_manager2))
+        put :update, :id => @account_manager.client.last, :client => FactoryGirl.attributes_for(:unassigned_client, :company => "Virgin", :contact => 23423423444, :account_manager => FactoryGirl.create(:account_manager2))
       end
 
       it "assigns the updated details" do

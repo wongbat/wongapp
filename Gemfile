@@ -16,11 +16,13 @@ group :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails', '4.0.0'
   gem 'shoulda'
+  gem 'database_cleaner'
 end
 
 group :development, :test do
   gem 'ruby-debug19', '0.11.6', :require => 'ruby-debug'
   gem 'ruby-debug-base19', '0.11.24', :require => nil
+  gem 'railroady'
 end
 
 # Gems used only for assets and not required

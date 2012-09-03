@@ -42,8 +42,11 @@ class CampaignsController < ApplicationController
   def create
     @account_manager = AccountManager.find(params[:account_manager_id])
     @client = @account_manager.clients.find(params[:client_id])
-    @campaign = @client.campaigns.new(params[:campaign])
-
+    @campaign = @client.campaigns.new do |campaign|
+      campaign.title = params[:campaign][:title]
+      campaign.style = params[:campaign][:style]
+    end
+    debugger
     respond_to do |format|
       if @campaign.save
         format.html { redirect_to account_manager_client_campaigns_path(@account_manager, @client), :notice => "you created a campaign!" }

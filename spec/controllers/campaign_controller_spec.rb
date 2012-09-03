@@ -52,5 +52,7 @@ describe CampaignsController do
         post :create, :account_manager_id => AccountManager.last.id, :client_id => Client.last.id, :campaign => @campaign
       }.to change(Campaign, :count).by(1)
     end
+    
+    it "should redirect correctly"
   end
 end

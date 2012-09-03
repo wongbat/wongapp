@@ -1,0 +1,6 @@
+%ol
+  - @clients.each do |f|
+    %li= link_to f.company
+    %li= link_to f.contact
+    %p= link_to 'see clients', account_manager_clients_path(f)
+    %p= link_to 'remove client', f, :method => :delete, :id => f.id
