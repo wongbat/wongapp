@@ -12,7 +12,7 @@ describe AccountManager do
   end
 
   it "should not save without a valid email" do
-    account_manager = FactoryGirl.create(:account_manager, :email => "wef@de")
+    account_manager = FactoryGirl.build(:account_manager, :email => "wef@de")
     expect { account_manager.save! }.should raise_error(ActiveRecord::RecordInvalid, /Email is invalid/)
   end
 
@@ -30,8 +30,8 @@ describe AccountManager do
   context "Account Manager with multiple clients" do
     before(:each) do
       @am = FactoryGirl.create(:account_manager)
-      @am.clients << FactoryGirl.create(:invalid_client)
-      @am.clients << FactoryGirl.create(:invalid_client, :company => "ecco", :contact => 34587623943)
+      @am.clients << FactoryGirl.create(:unassigned_client)
+      @am.clients << FactoryGirl.create(:unassigned_client, :company => "ecco", :contact => 34587623943)
     end
 
     it "should have 2 clients" do

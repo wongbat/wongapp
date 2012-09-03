@@ -13,11 +13,13 @@ describe Client do
   end
 
   it "should not save with a duplicate contact number" do
-    client = FactoryGirl.build(:client, :contact => 43540175167)
-    expect { client.save! }.should raise_errie(ActiveRecord::RecordInvalid, /Contact already exists/)
+    client1 = FactoryGirl.create(:unassigned_client)
+    client2 = FactoryGirl.build(:unassigned_client, :contact => client1.contact)
+    expect { client2.save! }.should raise_error(ActiveRecord::RecordInvalid, /Contact has already been taken/)
   end
 
   it "should not save without associated Account Manager" do
+    pending "Not confident of validates_presence_of on associated models..."
     client = FactoryGirl.build(:unassigned_client)
     expect { client.save! }.should raise_error(ActiveRecord::RecordInvalid, /Account managers can't be blank/)
   end
