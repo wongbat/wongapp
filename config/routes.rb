@@ -1,9 +1,9 @@
 Petal::Application.routes.draw do
   resources :account_managers do
-    resources :clients do
-      resources :campaigns
-    end
+    resources :clients
   end
+
+  resources :campaigns
 
 #  resources :clients do
 #    resources :campaigns
