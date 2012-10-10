@@ -6,7 +6,7 @@ FactoryGirl.define do
     contact 43540175167
     account_managers {[FactoryGirl.create(:account_manager)]}
 #    after_build do |client|
-#      client.account_managers << FactoryGirl.build(:account_manager, :client => client)
+#      client.account_managers << FactoryGirl.create(:account_manager, :client => client)
 #    end
   end
 #    after(:create) { |u| FactoryGirl.create(:account_manager, :client => u) }
